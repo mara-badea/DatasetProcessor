@@ -10,19 +10,23 @@ os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
 
 dataset_path = r"C:\Users\badea\Downloads\DatasetProcessor\data\brain-tumor-mri-dataset"
-output_csv_path = r"C:\Users\badea\Downloads\DatasetProcessor\output\brain-labels.csv"
+output_csv_path = r"C:\Users\badea\Downloads\DatasetProcessor\output"
+file_name = "brain-labels.csv"
 
-custom_data_loader = CustomDataLoader(dataset_path, "brain", "mri", output_csv_path)
+custom_data_loader = CustomDataLoader(
+    dataset_path, "brain", "mri", output_csv_path, file_name
+)
 
 N = 2
 
 augmented_images = []
 
-for _ in range(N):
-    for image, label in custom_data_loader.dataset:
-        augmented_images.append((image, label))
-
-print(f"Total augmented images generated: {len(augmented_images)}")
+# for _ in range(N):
+#     for image, label in custom_data_loader.dataset:
+#         augmented_images.append((image, label))
+#
+# print(f"Total augmented images generated: {len(augmented_images)}")
+#
 
 
 def imshow(img):

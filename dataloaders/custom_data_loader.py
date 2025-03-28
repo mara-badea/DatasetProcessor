@@ -12,14 +12,15 @@ class CustomDataLoader:
         dataset_path: str,
         scanned_organ: str,
         scan_type: str,
-        output_csv_path: str,
+        csv_dest_folder: str,
+        csv_file_name: str,
         batch_size: int = 32,
         mode: str = "train",  # Default mode is train
     ):
         self.transforms = get_transform(scanned_organ, mode)
         self.dataset_processor = (
             DatasetProcessorFolderTag(
-                dataset_path, scanned_organ, scan_type, output_csv_path
+                dataset_path, scanned_organ, scan_type, csv_dest_folder, csv_file_name
             )
             if scanned_organ.upper() in {"BRAIN", "LUNGS"}
             else None

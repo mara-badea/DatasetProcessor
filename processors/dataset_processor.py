@@ -3,9 +3,10 @@ from abc import ABC, abstractmethod
 
 
 class DatasetProcessor(ABC):
-    def __init__(self, dataset_path: str, output_csv_path: str):
+    def __init__(self, dataset_path: str, csv_dest_folder: str, csv_file_name: str):
         self.dataset_path = dataset_path
-        self.output_csv_path = output_csv_path
+        self.csv_dest_folder = csv_dest_folder
+        self.csv_file_name = csv_file_name
         self.train_set_path = self._get_train_set_path()
         self.test_set_path = self._get_test_set_path()
 
