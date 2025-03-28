@@ -1,7 +1,8 @@
 import os
+from abc import ABC, abstractmethod
 
 
-class DatasetProcessor:
+class DatasetProcessor(ABC):
     def __init__(self, dataset_path: str, output_csv_path: str):
         self.dataset_path = dataset_path
         self.output_csv_path = output_csv_path
@@ -25,3 +26,11 @@ class DatasetProcessor:
                 return os.path.join(self.dataset_path, folder)
 
         raise Exception("No test folder found!")
+
+    @abstractmethod
+    def get_labels(self):
+        """
+        Abstract method to retrieve labels for the dataset.
+        Should be implemented by subclasses to handle custom label logic.
+        """
+        pass
