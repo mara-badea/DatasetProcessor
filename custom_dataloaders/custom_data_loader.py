@@ -1,6 +1,6 @@
 from torch.utils.data import DataLoader
-from dataloaders.utils import get_transform
-from datasets.custom_image_dataset import CustomImageDataset
+from custom_dataloaders.utils import get_transform
+from custom_datasets.custom_image_dataset import CustomImageDataset
 
 
 from processors.dataset_processor_folder_tag import DatasetProcessorFolderTag
@@ -30,7 +30,7 @@ class CustomDataLoader:
         # Load the custom dataset with the appropriate transformations
         self.dataset = self.load_custom_dataset()
 
-        # Create data loaders for different datasets
+        # Create data loaders for different custom_datasets
         self.train_loader = (
             DataLoader(self.dataset, batch_size=batch_size, shuffle=True)
             if mode == "train"
